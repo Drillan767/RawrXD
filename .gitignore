@@ -1,0 +1,14 @@
+/.bundle
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+.idea/*
+
+/config/application.yml
+
+/node_modules
+/yarn-error.log
+
+/public/packs
+/public/packs-test
