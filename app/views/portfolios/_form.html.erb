@@ -1,4 +1,4 @@
-<%= form_with(model: portfolio, local: true) do |form| %>
+<%= form_with(model: portfolio, local: true) do |f| %>
   <% if portfolio.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
@@ -11,7 +11,56 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tags %>
+    <%= f.text_field :tags, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :creation_time %>
+    <%= f.datetime_select :creation_time, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-group', id: 'content' %>
+  </div>
+
+  <div class="form-check">
+    <%= f.label :public %>
+
+    <%= f.label :public do %>
+        <%= f.radio_button :public, 1 %>
+        Ouais
+    <% end %>
+
+    <%= f.label :public do %>
+        <%= f.radio_button :public, 0 %>
+        Nan
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :thumbnail %>
+    <%= f.file_field :thumbnail, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :illustrations %>
+    <%= f.file_field :illustrations, class: 'form-control', multiple: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :website %>
+    <%= f.text_field :website, class: 'form-control' %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

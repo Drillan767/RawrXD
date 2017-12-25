@@ -7,6 +7,7 @@ class CreatePortfolios < ActiveRecord::Migration[5.1]
       t.text :content
       t.string :tags
       t.json :illustrations
+      t.string :slug
       t.string :thumbnail
       t.string :website
       t.timestamps

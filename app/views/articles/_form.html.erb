@@ -29,7 +29,6 @@
   <div class="form-check">
     <%= f.label :public %>
 
-
     <%= f.label :public do %>
         <%= f.radio_button :public, 1 %>
         Ouais
@@ -40,11 +39,6 @@
         Nan
     <% end %>
   </div>
-
-    t.string :image
-    t.boolean :public
-    t.string :tags
-    t.text :content
 
   <div class="form-group">
     <%= f.label :content %>
