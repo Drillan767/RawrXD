@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'home#index'
+
   get '/contact' => 'home#contact', as: :contact
   get '/about' => 'home#about', as: :about
 
@@ -11,9 +12,10 @@ Rails.application.routes.draw do
     get 'logout' => 'devise/sessions#destroy', as: :logout
   end
 
+  get '/admin' => 'home#admin', as: :admin
+
   authenticate :user do
     scope '/admin' do
-      get '/' => 'home#admin', as: :admin
       resources :bases
       resources :portfolios
       resources :articles

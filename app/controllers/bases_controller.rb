@@ -1,11 +1,12 @@
 # This controller sets up the default configuration for the whole website
 class BasesController < ApplicationController
   before_action :set_basis, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /bases
   # GET /bases.json
   def index
-    @bases = Base.all
+    @bases = Base.first
   end
 
   # GET /bases/1

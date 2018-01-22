@@ -1,5 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  layout 'admin'
 
   def index
     @portfolios = Portfolio.all

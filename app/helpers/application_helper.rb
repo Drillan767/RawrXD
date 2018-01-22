@@ -1,9 +1,11 @@
 module ApplicationHelper
 
-  def titre
-    base_title = Base.first.default_title
+  def title
+    base_title = Base.first.default_title if Base.exists?
 
-    if @titre.nil?
+    base_title = 'RawrXD' if base_title.nil?
+
+    if @title.nil?
       base_title
     else
       "#{base_title} | #{@title}"

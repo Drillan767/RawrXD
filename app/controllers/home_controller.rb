@@ -1,11 +1,13 @@
 class HomeController < ApplicationController
   before_action :set_basis, except: :admin
+  before_action :authenticate_user!, only: :admin
 
   def index
-
+    @title = 'Home'
   end
 
   def admin
+
     render layout: 'admin'
   end
 
