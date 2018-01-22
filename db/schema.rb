@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20171224102943) do
     t.string "viadeo"
     t.string "linkedin"
     t.boolean "resume"
+    t.string "base_title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

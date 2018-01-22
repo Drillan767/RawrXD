@@ -4,7 +4,7 @@
 !/log/.keep
 !/tmp/.keep
 .idea/*
-public/uploads/*
+public/uploads
 
 /config/application.yml
 

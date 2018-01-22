@@ -1,12 +1,12 @@
 module ApplicationHelper
 
   def titre
-    base_titre = 'Joseph Levarato'
+    base_title = Base.first.default_title
 
     if @titre.nil?
-      base_titre
+      base_title
     else
-      "#{base_titre} | #{@titre}"
+      "#{base_title} | #{@title}"
     end
   end
 end

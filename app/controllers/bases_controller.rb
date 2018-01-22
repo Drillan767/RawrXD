@@ -1,3 +1,4 @@
+# This controller sets up the default configuration for the whole website
 class BasesController < ApplicationController
   before_action :set_basis, only: [:show, :edit, :update, :destroy]
 
@@ -14,7 +15,11 @@ class BasesController < ApplicationController
 
   # GET /bases/new
   def new
-    @basis = Base.new
+    if Base.exists?(id: 1)
+      redirect_to :admin_path, alert: 'Basic setup is already configured'
+    else
+      @basis = Base.new
+    end
   end
 
   # GET /bases/1/edit
@@ -62,13 +67,14 @@ class BasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_basis
-      @basis = Base.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def basis_params
-      params.fetch(:basis, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_basis
+    @basis = Base.first
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def basis_params
+    params.require(:bases).permit(:facebook, :twitter, :github, :viadeo, :linkedin, :resume)
+  end
 end

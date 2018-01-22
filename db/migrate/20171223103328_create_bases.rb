@@ -7,6 +7,7 @@ class CreateBases < ActiveRecord::Migration[5.1]
       t.string :viadeo
       t.string :linkedin
       t.boolean :resume
+      t.string :base_title
       t.timestamps
     end
   end

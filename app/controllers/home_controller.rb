@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :set_basis, except: :admin
 
   def index
 
@@ -9,15 +10,15 @@ class HomeController < ApplicationController
   end
 
   def articles_index
-
+    @articles = Articles.all
   end
 
   def article_show
-
+    @article = Article.friendly.find(params[:id])
   end
 
   def portfolio_index
-
+    @portfolios = Portfolio.all
   end
 
   def portfolio_show
@@ -28,5 +29,11 @@ class HomeController < ApplicationController
   end
 
   def about
+  end
+
+  private
+
+  def set_basis
+    @basis = Base.first if Base.exists?
   end
 end
