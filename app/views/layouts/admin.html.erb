@@ -5,15 +5,17 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
-<body>
-<% if notice %>
-  <p><%= notice %></p>
-<% elsif alert %>
-  <p><%= alert %></p>
-<% end %>
-<p>[ ADMINISTRATION ]</p>
+<body class="<%= controller_name %> <%= action_name %>">
+  <% if notice %>
+    <p><%= notice %></p>
+  <% elsif alert %>
+    <p><%= alert %></p>
+  <% end %>
+  <p>[ ADMINISTRATION ]</p>
 
-<%= yield %>
+  <%= yield %>
 
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application' %>
 </body>
 </html>
