@@ -6,11 +6,11 @@ import {elementForActionName} from './lib/elementForActionName';
 
 let actionName = extractActionName();
 
-   let renderElement = function (element, id) {
-       ReactDOM.render(
-           element,
-           document.getElementById(id)
-       );
-   };
+let renderElement = function (element, id) {
+   ReactDOM.render(
+       element,
+       document.getElementById(id)
+   );
+};
 
 renderElement(elementForActionName[actionName], actionName);
